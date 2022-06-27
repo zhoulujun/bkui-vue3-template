@@ -1,0 +1,18 @@
+.common-slider.bk-modal-wrapper.bk-sideslider-wrapper{
+  // 设置title高度
+   .bk-sideslider-header{
+    height: 52px;
+     .bk-sideslider-close.right{
+       height: 52px;
+     }
+  }
+
+  .bk-modal-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .bk-modal-content{
+      flex-grow: 1;
+    }
+  }
+}

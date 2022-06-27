@@ -1,0 +1,110 @@
+@mixin ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@mixin flex-align($orign: center) {
+  display: flex;
+  align-items: $orign;
+}
+@mixin flex-justify($orign: center) {
+  display: flex;
+  justify-content: $orign;
+}
+@mixin flex-column($orign: column) {
+  display: flex;
+  flex-direction: $orign;
+}
+@mixin icon-size($size: 14px, $fontSize: 14px) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: $size;
+  height: $size;
+  font-size: $fontSize;
+  overflow: hidden;
+  &::before {
+    width: $fontSize;
+    height: $fontSize;
+  }
+}
+@mixin tool-icon($size: 30px, $fontSize: 16px) {
+  @include icon-size($size, $fontSize);
+  &:hover {
+    color: #63656e;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: #f0f1f5;
+  }
+  &.active {
+    border-radius: 2px;
+    background-color: #e1ecff;
+    color: #3a84ff;
+  }
+}
+
+$statusColors: #94f5a4 #f0f1f5 #fd9c9c #fd9c9c;
+$statusBorderColors: #2dcb56 #c4c6cc #ea3636 #ea3636;
+$statusNames: "success" "nodata" "failed" "warning";
+
+/** 主机状态样式 */
+@mixin host-status {
+  @for $i from 1 through length($statusNames) {
+    .host-status.status-#{nth($statusNames, $i)} {
+      background: nth($statusColors, $i);
+      border: 1px solid nth($statusBorderColors, $i);
+    }
+  }
+  .host-status {
+    display: inline-block;
+    width: 6px;
+    min-width: 6px;
+    height: 6px;
+    border: 1px solid;
+    border-radius: 50%;
+  }
+  .status-none {
+    display: none;
+  }
+}
+
+/** 策略导航条样式 */
+@mixin strategy-config-nav {
+  .strategy-config-nav {
+    position: relative;
+    z-index: 1;
+    padding-left: 24px;
+    .nav-append-wrap {
+      padding-right: 19px;
+      .icon-audit {
+        @include tool-icon;
+      }
+    }
+  }
+}
+
+$colorKeys: "SUCCESS" "FAILED" "NODATA";
+$colors: linear-gradient(90deg,#2dcb56, #45e35f) linear-gradient(90deg,#ea3636, #ff5656) "#dcdee5";
+
+/** 通用进度条渐变颜色修改 */
+@mixin common-progress-color {
+  .common-progress-color {
+    @for $i from 1 through length($colorKeys) {
+      .progress-inner {
+        /* stylelint-disable-next-line declaration-no-important */
+        background: #2dcb56!important;
+      }
+      &.color-#{nth($colorKeys, $i)} {
+        .progress-inner {
+          /* stylelint-disable-next-line declaration-no-important */
+          background: nth($colors, $i)!important;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+node_modules
+.DS_Store
+dist
+dist-ssr
+*.local
+/.idea/
+.env.local
+.env.open
+test.js
+test.html
+Test.ts
+/package-lock.json
+yarn.lock
+.codecc

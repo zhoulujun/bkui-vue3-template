@@ -1,0 +1,51 @@
+{
+  "compilerOptions": {
+    "strictNullChecks": false,
+    "strictPropertyInitialization": false,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "resolveJsonModule": true,
+    "allowJs": true,
+//    "noImplicitAny": false,
+    "target": "esnext",/* 编译目标ES版本*/
+    "module": "esnext",/* 编译目标模块系统*/
+    "moduleResolution": "node",/* 模块解析策略 */
+    "sourceMap": true,
+    "pretty": true,
+    "strict": true,
+    "jsx": "preserve",
+    "esModuleInterop": true,/* 允许编译生成文件时，在代码中注入工具类(__importDefault、__importStar)对ESM与commonjs混用情况做兼容处理*/
+    "lib": [/* 编译过程中需要引入的库文件列表*/
+      "esnext",
+      "dom"
+    ],
+    "outDir": "dist",
+    "rootDir": "./",
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@/components/*": ["./src/components/*"],
+      "@/pages/*": ["./src/pages/*"],
+      "@static/*": ["./static/*"],
+      "@modules/*": ["./src/store/modules/*"],
+      "@api/*": ["./src/api/modules/*"]
+    }
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "tests/**/*.ts",
+    "tests/**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules",
+    "env.js",
+    "babel.config.js",
+    "bk.config.js",
+    ".eslintrc.js",
+    "src/utils/login.js",
+    "test"
+  ]
+}

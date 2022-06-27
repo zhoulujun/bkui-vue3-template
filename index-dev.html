@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="icon" href="/static/images/favicon.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="/static/images/favicon.png" type="image/x-icon" />
+    <meta charset="utf-8">
+    <title> BkVision </title>
+    <style id='watermark'>
+      .chart-panel{
+        position: relative;
+      }
+      .chart-panel:before{
+        content: '';
+        position: absolute;
+        z-index: 9999999;
+        top:0;
+        right: 0;
+        bottom: 0;
+        left:0;
+        pointer-events: none;
+        background: url('./user/watermark/') center repeat;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+      window.PROJECT_CONFIG = (function () {
+          const SITE_URL = '/'
+          const BK_STATIC_URL = ''
+          // 当前应用的环境，预发布环境为 stag，正式环境为 prod
+          const BKPAAS_ENVIRONMENT = ''
+          // EngineApp名称，拼接规则：bkapp-{appcode}-{BKPAAS_ENVIRONMENT}
+          const BKPAAS_ENGINE_APP_NAME = ''
+          // 内部版对应ieod，外部版对应tencent，混合云版对应clouds
+          const BKPAAS_ENGINE_REGION = ''
+          // APP CODE
+          const BKPAAS_APP_ID = ''
+          const BK_LOGIN_URL= ''
+          const MEMBER_URL= '';
+          return {
+            BK_STATIC_URL: BK_STATIC_URL,
+            SITE_URL: SITE_URL,
+            BKPAAS_ENVIRONMENT: BKPAAS_ENVIRONMENT,
+            BKPAAS_ENGINE_APP_NAME: BKPAAS_ENGINE_APP_NAME,
+            BKPAAS_ENGINE_REGION: BKPAAS_ENGINE_REGION,
+            BKPAAS_APP_ID: BKPAAS_APP_ID,
+            BK_LOGIN_URL: BK_LOGIN_URL,
+            MEMBER_URL: MEMBER_URL,
+          }
+      })()
+    </script>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+.menu-left-list{
+  width: 260px;
+  height: 100%;
+  box-shadow: 1px 0 0 #dcdee5;
+  > div {
+    height: 41px;
+    line-height: 41px;
+    color: #999;
+    font-weight: 600;
+
+    .menu-icon {
+      font-size: 20px;
+    }
+
+    &.active-item {
+      position: relative;
+      background-color: rgba(58, 132, 255, .1);
+      color: $primary-color;
+    }
+  }
+}
