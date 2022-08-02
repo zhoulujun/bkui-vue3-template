@@ -51,6 +51,7 @@
     "cross-env": "^7.0.3",
     "sass": "^1.52.3",
     "sass-loader": "^13.0.0",
-    "typescript": "^4.7.4"
+    "typescript": "^4.7.4",
+    "vue-facing-decorator": "^2.1.3"
   }
 }
