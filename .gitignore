@@ -9,6 +9,3 @@ dist-ssr
 test.js
 test.html
 Test.ts
-/package-lock.json
-yarn.lock
-.codecc

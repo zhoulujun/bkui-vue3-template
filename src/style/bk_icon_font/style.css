@@ -1,0 +1,151 @@
+@font-face {
+	font-family: "bk-vision";
+	src: url("fonts/iconcool.svg#iconcool") format("svg"),
+url("fonts/iconcool.ttf") format("truetype"),
+url("fonts/iconcool.woff") format("woff"),
+url("fonts/iconcool.eot?#iefix") format("embedded-opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.bk-vision-icon {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'bk-vision' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  text-align: center;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.v-check-circle-fill:before {
+	content: "\e102";
+}
+.v-share:before {
+	content: "\e104";
+}
+.v-reconciliation:before {
+	content: "\e103";
+}
+.v-database:before {
+	content: "\e106";
+}
+.v-cloud-upload:before {
+	content: "\e107";
+}
+.v-snippets:before {
+	content: "\e105";
+}
+.v-file-text:before {
+	content: "\e108";
+}
+.v-mail:before {
+	content: "\e10a";
+}
+.v-biaodanzujian-biaoge:before {
+	content: "\e109";
+}
+.v-shuzi:before {
+	content: "\e10b";
+}
+.v-pie-chart:before {
+	content: "\e10d";
+}
+.v-dashboard:before {
+	content: "\e10c";
+}
+.v-line-chart:before {
+	content: "\e10e";
+}
+.v-bar-chart:before {
+	content: "\e111";
+}
+.v-message:before {
+	content: "\e10f";
+}
+.v-delete:before {
+	content: "\e110";
+}
+.v-fuzhi:before {
+	content: "\e112";
+}
+.v-shujubiao:before {
+	content: "\e113";
+}
+.v-fsux_tubiao_qipaotu:before {
+	content: "\e114";
+}
+.v-bangzhu:before {
+	content: "\e115";
+}
+.v-quanxian:before {
+	content: "\e116";
+}
+.v-yuyan:before {
+	content: "\e117";
+}
+.v-control:before {
+	content: "\e118";
+}
+.v-app-store:before {
+	content: "\e11a";
+}
+.v-dashboard1:before {
+	content: "\e119";
+}
+.v-refresh:before {
+	content: "\e11b";
+}
+.v-zoom:before {
+	content: "\e11d";
+}
+.v-more_android:before {
+	content: "\e11f";
+}
+.v-shaixuan:before {
+	content: "\e11c";
+}
+.v-fanyi:before {
+	content: "\e11e";
+}
+.v-tubiao-hanshu:before {
+	content: "\e120";
+}
+.v-insert-row-above:before {
+	content: "\e121";
+}
+.v-folder-open:before {
+	content: "\e122";
+}
+.v-font-colors:before {
+	content: "\e123";
+}
+.v-line-chart-1:before {
+	content: "\e124";
+}
+.v-point:before {
+	content: "\e125";
+}
+.v-edit:before {
+	content: "\e126";
+}
+.v-move:before {
+	content: "\e127";
+}
+.v-shijian:before {
+	content: "\e129";
+}
+.v-shuzidizeng:before {
+	content: "\e12a";
+}
+.v-_tupian:before {
+	content: "\e12b";
+}
+.v-fuwenbenkuang:before {
+	content: "\e12c";
+}

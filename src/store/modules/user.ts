@@ -1,15 +1,15 @@
 import { VuexModule, Module, getModule, Mutation, Action } from 'vuex-module-decorators';
-import { IUserModel, PermissionUser, UserInfoRes } from '@/typings';
-import { getUserInfo,getSpacePermission } from '@/api/modules/user';
+import { IUserModel, PermissionUser, SpaceItem, UserInfoRes } from '@/typing/user';
+import { getUerInfo } from '@/api/modules/user';
+import { getSpacePermission } from '@/api/modules/space';
 import store from '../index';
-import { ISpaceItem } from '@/typings';
 
 @Module({ dynamic: true, store, name: 'user' })
 class User extends VuexModule {
-  public user: IUserModel | null = null;
+  public user: IUserModel|null = null;
   public permissions: PermissionUser = {};
-  public space: ISpaceItem | null = null;
-  public spaces: ISpaceItem[] = [];
+  public space: SpaceItem |null= null;
+  public spaces: SpaceItem[] = [];
 
   @Mutation
   setUser(payload: IUserModel) {
@@ -17,15 +17,9 @@ class User extends VuexModule {
   }
 
   @Mutation
-  setSpace(payload: {
-    type: 'single' | 'array'
-    data: ISpaceItem | ISpaceItem[]
-  }) {
-    if (payload.type === 'single') {
-      this.space = payload.data as ISpaceItem;
-    } else {
-      this.spaces = payload.data as ISpaceItem[];
-    }
+  setSpace(payload: SpaceItem) {
+    this.space = payload;
+    window.space_uid = payload.uid;
   }
 
   @Mutation
@@ -35,10 +29,10 @@ class User extends VuexModule {
 
   @Action
   setUserAsync() {
-    getUserInfo().then(({ permissions, avatar, username, spaces }: UserInfoRes) => {
+    getUerInfo().then(({ permissions, avatar, username, spaces }: UserInfoRes) => {
       this.context.commit('setUser', { username, avatar });
       this.context.commit('setPermissions', permissions || {});
-      this.context.commit('setSpace', { type: 'array', data: spaces });
+      this.context.commit('setSpace', spaces);
     });
   }
 

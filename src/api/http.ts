@@ -33,6 +33,8 @@ function removePendingRequest(config: AxiosRequestConfig) {
 const http = axios.create({
   timeout: 1000 * 120,
   withCredentials: true,
+  xsrfCookieName: 'X-CSRFToken',
+  baseURL: window.PROJECT_CONFIG?.SITE_URL || '',
 });
 const executeError = (error: AxiosError) => {
   let isShowNormalError = true;
@@ -54,6 +56,9 @@ http.interceptors.request.use((_config: AxiosRequestConfig) => {
   addPendingRequest(config); // 把当前请求添加到pendingRequest对象中
   if (!config.headers) {
     config.headers = {};
+  }
+  if (!['HEAD', 'OPTIONS', 'TRACE'].includes(`${config.method}`.toUpperCase())) {
+    config.headers['X-CSRFToken'] = getCookie(window.csrf_cookie_name) || '';
   }
   config.headers['X-Requested-With'] = 'XMLHttpRequest';
   // config.url = window.PROJECT_CONFIG.SITE_URL + _config.url;
@@ -93,7 +98,7 @@ http.interceptors.response.use((res: AxiosResponse) => {
     // removePendingRequest(error.config); // 从pendingRequest对象中移除请求
     const { response } = error;
     const { url = '' } = response?.config || {};
-    const { status } = error.response || {};
+    const { status } = error.response;
     if (axios.isCancel(error)) {
       console.log(`已取消的重复请求：${url}`);
       return Promise.reject(null);

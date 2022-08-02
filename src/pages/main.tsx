@@ -1,28 +1,41 @@
-import { defineComponent } from 'vue';
-import {  useRoute } from 'vue-router';
-import Navigation from '@/components/navigation';
-import Menu from '@/components/menu'
+import { defineComponent, Suspense, Transition, ref } from 'vue';
+import { RouterView, useRouter } from 'vue-router';
+import { UserModule } from '@modules/user';
 export default defineComponent({
-  name: 'HomePage',
   setup() {
-    const route = useRoute();
-    let { isHideNav } = route.meta;
-    const { space_uid } = route.params;
-    const routeClass = () => {
-      if (isHideNav) {
-        return 'full-page';
+    const router = useRouter();
+    const loading = ref(true);
+    UserModule.setUserAsync().then(() => {
+      // 如果没有创建空间，跳转到空间页面
+      if (!UserModule.space) {
+        router.push({ name: 'space' });
       }
-      return 'flex-1';
+    })
+      .finally(() => {
+        loading.value = false;
+      });
+    return () => {
+      if (loading.value) {
+        return  (
+          <Loading/>
+        );
+      }
+      return (
+        <RouterView>
+          {{
+            default: ({ Component, route }: { Component: () => JSX.Element, route: any }) => (
+              <Transition name={route.meta.transition || 'fade'} mode='out-in'>
+                <Suspense>
+                  {{
+                    default: () => <Component key={route.name}/>,
+                    fallback: () => <Loading/>,
+                  }}
+                </Suspense>
+              </Transition>
+            ),
+          }}
+        </RouterView>
+      );
     };
-    return () => (
-      <div class='full-height flex-column'>
-        <Navigation/>
-        <div class='flex-row flex-1 '>
-          <Menu/>
-          <router-view key={space_uid}  class='flex-1 full-height'/>
-        </div>
-
-      </div>
-    );
   },
 });

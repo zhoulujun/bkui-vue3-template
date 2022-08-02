@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
-    "strictNullChecks": false,
-    "strictPropertyInitialization": false,
+
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "importHelpers": true,
@@ -20,18 +19,24 @@
       "esnext",
       "dom"
     ],
-    "outDir": "dist",
-    "rootDir": "./",
-    "baseUrl": "./",
+//    "outDir": "dist",
+//    "rootDir": "./",
+//    "baseUrl": "./",
     "paths": {
       "@/*": ["./src/*"],
       "@/components/*": ["./src/components/*"],
       "@/pages/*": ["./src/pages/*"],
       "@static/*": ["./static/*"],
+      "@charts/*": ["./src/plugins/charts/*"],
+      "@datasource/*": ["./src/plugins/datasource/*"],
+      "@dashboard/*": ["./src/plugins/dashboard/*"],
       "@modules/*": ["./src/store/modules/*"],
-      "@api/*": ["./src/api/modules/*"]
     }
   },
+ /* "typeRoots": [                            *//* 要包含的类型声明文件路径列表*//*
+    "./typings",
+    "./node_modules/@types"
+  ],*/
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
@@ -41,10 +46,14 @@
   ],
   "exclude": [
     "node_modules",
-    "env.js",
+    "plugins",
+    "env.ts",
     "babel.config.js",
     "bk.config.js",
     ".eslintrc.js",
+    "webpack.config.js",
+    "src/components/vue-grid-layout",
+    "src/components/monaco",
     "src/utils/login.js",
     "test"
   ]

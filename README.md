@@ -1,15 +1,3 @@
-### 运行项目
-```
-npm run dev
-```
-
-### 编译生产环境文件
-
-```
-npm run build
-```
-
-### 格式化项目
-```
-npm run lint
-```
+# vite vue3 项目模板（bk-vision抽离）
++ vite版本，用vite 分支
++ webpack版本，用master分支

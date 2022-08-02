@@ -17,7 +17,17 @@
   max-height: 100%;
 }
 
+.mw100 {
+  min-width: 100px !important;
+}
 
+.mw150 {
+  min-width: 150px !important;
+}
+
+.mw200 {
+  min-width: 200px !important;
+}
 
 .mt150 {
   margin-top: 150px;
@@ -43,7 +53,7 @@
   margin-top: 0 !important;
 }
 
-@for $i from 1 through 8 {
+@for $i from 1 through 6 {
   $m: $i*5;
   $n: $m*1;
   .m#{$m} {

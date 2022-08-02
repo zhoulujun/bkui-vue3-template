@@ -9,44 +9,17 @@ import {
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    redirect: '/dashboard',
-  },
-  {
-    path: '/dashboard',
-    name: 'dashboard',
-    component: () => import('@/pages/dashboard/index'),
-  },
-  {
-    path: '/efficiency',
-    name: 'efficiency',
-    component: () => import('@/pages/efficiency/index'),
-  },
-  {
-    path: '/member',
-    name: 'member',
-    component: () => import('@/pages/member/index'),
-  },
-  {
-    path: '/quality',
-    name: 'quality',
-    component: () => import('@/pages/quality/index'),
-  },
-  {
-    path: '/setting',
-    name: 'setting',
-    component: () => import('@/pages/setting/index'),
+    redirect: '/exception',
   },
   {
     path: '/exception',
     name: 'exception',
     component: () => import('@/pages/exception'),
+    meta: {
+      parent: 'exception',
+      isHideNav: true,
+    },
   },
-  {
-    path: '/:pathMatch(.*)*',
-    name: '404',
-    component: () => import('@/pages/403'),
-  },
-
 
 ];
 
